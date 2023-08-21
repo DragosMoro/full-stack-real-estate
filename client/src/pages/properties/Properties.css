@@ -6,14 +6,15 @@
   border-radius: 30px;
   border: 1px solid rgba(120, 120, 120, 0.374);
   flex-wrap: nowrap;
+  padding: 0.5rem ;
 }
 
-.properties-container .search-bar .button{
-    border-radius: 30px;
-    font-size: 12px;
-    padding: auto;
+.properties-container .search-bar .button {
+  border-radius: 30px;
+  font-size: 12px;
+  padding: auto;
 }
 
-.properties-container .search-bar input{
-    width: 70%;
+.properties-container .search-bar input {
+  width: 70%;
 }
