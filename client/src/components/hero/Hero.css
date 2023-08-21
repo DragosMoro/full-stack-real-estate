@@ -60,10 +60,10 @@
     justify-content: space-between;
     width: 100%;
 }
-.search-bar>input{
+.search-bar input{
     border: none;
     outline: none;
-    /* i want it to show the text Search... */
+    width: 60%;
 }
 .search-bar>input::placeholder{
     color: rgba(41, 40, 40, 0.374);

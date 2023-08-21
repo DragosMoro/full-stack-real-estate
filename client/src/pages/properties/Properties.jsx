@@ -1,10 +1,12 @@
 import "./Properties.css"
-
+import SearchBar from "../../components/searchBar/SearchBar"
 
 const Properties = () => {
     return (
         <div className="wrapper">
-            Properties
+            <div className="flexColCenter paddings innerWidth properties-container">
+                <SearchBar/>
+            </div>
         </div>
     )
 }
