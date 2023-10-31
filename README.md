@@ -1,4 +1,4 @@
-# Real Estate Web Application Readme
+# Real Estate Web Application
 
 Welcome to our user-friendly real estate web application! This web application was designed and developed by me to provide a seamless experience for users interested in the real estate market.
 
