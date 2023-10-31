@@ -1,9 +1,11 @@
-import PropTypes from "prop-types";
 import "./PropertyCard.css";
 import { AiFillHeart } from "react-icons/ai";
+import {truncate} from "lodash";
+import { useNavigate } from "react-router-dom";
 const PropertyCard = ({ card }) => {
+    const navigate = useNavigate();
     return (
-        <div className="flexColStart r-card">
+        <div className="flexColStart r-card" onClick={()=>navigate(`../properties/${card.id}`)}>
             <AiFillHeart size={24} color="white"/>
             <img src={card.image} alt="residency-image" />
             <span className="secondaryText r-price">
@@ -11,22 +13,22 @@ const PropertyCard = ({ card }) => {
                 <span>{card.price}</span>
             </span>
             <span className="primaryText">
-                {card.name}
+                {truncate(card.title, {length: 15})}
             </span>
             <span className="secondaryText">
-                {card.detail}
+                {truncate(card.description, {length: 80})}
             </span>
         </div>
     )
 }
 
-PropertyCard.propTypes = {
-    card: PropTypes.shape({
-        image: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        detail: PropTypes.string.isRequired,
-    }).isRequired,
-};
+// PropertyCard.propTypes = {
+//     card: PropTypes.shape({
+//         image: PropTypes.string.isRequired,
+//         price: PropTypes.number.isRequired,
+//         name: PropTypes.string.isRequired,
+//         detail: PropTypes.string.isRequired,
+//     }).isRequired,
+// };
 
 export default PropertyCard

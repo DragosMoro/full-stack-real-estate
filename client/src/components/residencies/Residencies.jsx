@@ -2,12 +2,35 @@ import { useState } from "react";
 import "./Residencies.css"
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react"
 import 'swiper/css';
-import data from "../../utils/slider.json"
 import { sliderSettings } from "../../utils/common";
 import PropertyCard from "../propertyCard/PropertyCard";
+import useProperties from "../../hooks/useProperties";
+import { SyncLoader } from "react-spinners";
 
 
 const Residencies = () => {
+
+    const { data, isError, isLoading} = useProperties();
+    if(isError)
+    {
+        return(
+            <div className="wrapper">
+                <span>
+                    Error while fetching data
+                </span>
+
+            </div>
+        )
+    }
+    if(isLoading)
+    {
+        return(
+            <div className="wrapper flexCenter" style={{height:"60vh"}}>
+                <SyncLoader height="80" width ="80" radius={1} color="#4066ff" aria-label="sync-loading"/>
+            </div>
+        )
+
+    }
     return (
         <section className="r-wrapper" id="residencies">
             <div className="paddings innerWidth r-container">
@@ -22,7 +45,7 @@ const Residencies = () => {
                 <Swiper {...sliderSettings}>
                     <SliderButtons/>
                     {
-                        data.map((card, i) => (
+                        data.slice(0,10).map((card, i) => (
                             <SwiperSlide key={i}>
                                 <PropertyCard card = {card}/>
                             </SwiperSlide>
